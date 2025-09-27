@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Losowanie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #357ABD;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Losowanie Mikołajkowe</h1>
+  </header>
+
+  <main>
+    <p>To jest moja pierwsza strona napisana w HTML, CSS i JavaScript 🚀</p>
+    <button id="btn">Kliknij mnie</button>
+	 <div id="wynik"></div>
+  </main>
+
+  <script>
+	const tab=["Kasia","Misza","Jula","Bartek","Asia","Filip","Milena"];
+    const btn = document.getElementById("btn");
+	 const wynik = document.getElementById("wynik");
+
+
+    btn.addEventListener("click", () => {
+		const liczba = Math.floor(Math.random() * 7); 
+		wynik.textContent = "Musisz kupić prezent: " + tab[liczba];
+    });
+  </script>
+  
+</body>
+</html>
