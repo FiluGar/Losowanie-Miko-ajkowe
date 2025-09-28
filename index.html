@@ -51,20 +51,75 @@
   <main>
     <p>To jest moja pierwsza strona napisana w HTML, CSS i JavaScript 🚀</p>
     <button id="btn">Kliknij mnie</button>
-	 <div id="wynik"></div>
+    <div id="wynik"></div>
   </main>
 
-  <script>
-	const tab=["Kasia","Misza","Jula","Bartek","Asia","Filip","Milena"];
+  <label for="OSOBA">Wybierz siebie:</label>
+  <select id="OSOBA">
+    <option value="Kasia">Kasia</option>
+    <option value="Misza">Misza</option>
+    <option value="Jula">Jula</option>
+    <option value="Bartek">Bartek</option>
+    <option value="Asia">Asia</option>
+    <option value="Filip">Filip</option>
+    <option value="Milena">Milena</option>
+  </select>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getDatabase, ref, get, set, child } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+    // 🔹 KONFIGURACJA FIREBASE – podmień swoimi danymi!
+    const firebaseConfig = {
+      apiKey: "TWOJE_API_KEY",
+      authDomain: "LosowanieMiko-ajkowe.firebaseapp.com",
+      databaseURL: "https://losowaniemiko-ajkowe-default-rtdb.europe-west1.firebasedatabase.app/",
+      projectId: "losowaniemiko-ajkowe",
+      storageBucket: "losowaniemiko-ajkowe.appspot.com",
+      messagingSenderId: "799794096883",
+      appId: "1:799794096883:web:b7063783ada57a57b22586"
+    };
+
+    // 🔹 Inicjalizacja
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const tab = ["Kasia","Misza","Jula","Bartek","Asia","Filip","Milena"];
     const btn = document.getElementById("btn");
-	 const wynik = document.getElementById("wynik");
+    const wynik = document.getElementById("wynik");
+    const select = document.getElementById("OSOBA");
 
+    btn.addEventListener("click", async () => {
+      const ja = select.value;
 
-    btn.addEventListener("click", () => {
-		const liczba = Math.floor(Math.random() * 7); 
-		wynik.textContent = "Musisz kupić prezent: " + tab[liczba];
+      const dbRef = ref(db);
+      const snapshot = await get(child(dbRef, "wylosowane"));
+
+      let wylosowane = snapshot.exists() ? snapshot.val() : {};
+
+      // jeśli ta osoba już losowała → pokaż wynik
+      if (wylosowane[ja]) {
+        wynik.textContent = `Już losowałeś! Twój prezent dla: ${wylosowane[ja]}`;
+        return;
+      }
+
+      // dostępne osoby (nikt nie może wylosować siebie ani osoby już przypisanej)
+      const dostepne = tab.filter(o => o !== ja && !Object.values(wylosowane).includes(o));
+
+      if (dostepne.length === 0) {
+        wynik.textContent = "Brak dostępnych osób do wylosowania!";
+        return;
+      }
+
+      // losowanie
+      const los = dostepne[Math.floor(Math.random() * dostepne.length)];
+
+      // zapis do bazy
+      await set(ref(db, "wylosowane/" + ja), los);
+
+      wynik.textContent = `Musisz kupić prezent: ${los}`;
     });
   </script>
-  
 </body>
 </html>
