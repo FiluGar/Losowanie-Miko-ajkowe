@@ -1,0 +1,31 @@
+
+
+.choinka-container {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.choinka {
+  width: 100%;
+  display: block;
+}
+
+.prezenty {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1px;
+}
+
+.prezent {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.prezent:hover {
+  transform: scale(1.2);
+}
