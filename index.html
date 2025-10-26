@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-
-
-	<link rel="stylesheet" href="style.css">
-
-
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <title>Losowanie</title>
   <style>
@@ -16,22 +12,13 @@
       padding: 0;
       text-align: center;
     }
-
     header {
       background: #4a90e2;
       color: white;
       padding: 20px;
     }
-
-    h1 {
-      margin: 0;
-    }
-
-    p {
-      font-size: 18px;
-      margin: 20px 0;
-    }
-
+    h1 { margin: 0; }
+    p { font-size: 1px; margin: 20px 0; }
     button {
       background: #4a90e2;
       color: white;
@@ -42,94 +29,65 @@
       border-radius: 8px;
       transition: background 0.3s;
     }
-	
-	label{
-	
-		font-size: 32px;
-		margin: 20px 0;
-	
-	}
-	
-	#OSOBA {
-	  font-size: 28px;
-	  padding: 10px;
-	  border-radius: 8px;
-	  border: 2px solid #4a90e2;
-	  background-color: white;
-	  color: #333;
-	  cursor: pointer;
-	}
-	#Choinka{
-		size: 400px;
-	}
-	
-    button:hover {
-      background: #357ABD;
-	  
+    label {
+      font-size: 32px;
+      margin: 20px 0;
     }
-	
-	
-		
-		.prezent {
-	  width: 150px;
-	  gap: 0px;
-	  transition: all 1.5s ease-in-out;
-	  cursor: pointer;
-	  position: relative;
-	  z-index: 0.5;
-	}
-
-
-
-	
-	.prezent.fly {
+    #OSOBA {
+      font-size: 28px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 2px solid #4a90e2;
+      background-color: white;
+      color: #333;
+      cursor: pointer;
+    }
+    #Choinka {
+      size: 400px;
+    }
+    button:hover { background: #357ABD; }
+    .prezent {
+      width: 150px;
+      gap: 0px;
+      transition: all 1.5s ease-in-out;
+      cursor: pointer;
+      position: relative;
+      z-index: 0.5;
+    }
+    .prezent.fly {
       position: absolute;
       left: 50%;
       top: 40%;
-      transform: translate(-50%, -250%) scale(5);
+      transform: translate(-50%, -300%) scale(6);
       z-index: 15;
     }
-
-		.prezent.shake {
-	  animation: shake 1.5s ease-in-out;
-	}
-
-	
-		
-		@keyframes shake {
-	  0%, 100% { transform: translate(-50%, -250%) scale(5) rotate(0deg); }
-	  20% { transform: translate(-50%, -250%) scale(5) rotate(5deg); }
-	  40% { transform: translate(-50%, -250%) scale(5) rotate(-5deg); }
-	  60% { transform: translate(-50%, -250%) scale(5) rotate(4deg); }
-	  80% { transform: translate(-50%, -250%) scale(5) rotate(-4deg); }
-	}
-
-		#wynik {
-	  position: absolute;
-	  left: 50%;
-	  top: 50%;
-	  transform: translate(-50%, -50%);
-	  background: rgba(255, 255, 255, 0.97);
-	  border: 3px solid #4a90e2;
-	  padding: 15px 25px;
-	  font-size: 20px;
-	  color: #333;
-	  border-radius: 16px;
-	  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-	  opacity: 0;
-	  transition: opacity 1.5s ease;
-	  z-index: 20;
-	}
-
-	#wynik.show {
-	  opacity: 1;
-	}
-	
-	
-	
-	
-	
-	
+    .prezent.shake {
+      animation: shake 1.5s ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translate(-50%, -300%) scale(6) rotate(0deg); }
+      20% { transform: translate(-50%, -300%) scale(6) rotate(5deg); }
+      40% { transform: translate(-50%, -300%) scale(6) rotate(-5deg); }
+      60% { transform: translate(-50%, -300%) scale(6) rotate(4deg); }
+      80% { transform: translate(-50%, -300%) scale(6) rotate(-4deg); }
+    }
+    #wynik {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.97);
+      border: 3px solid #4a90e2;
+      padding: 15px 25px;
+      font-size: 20px;
+      color: #333;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      z-index: 20;
+    }
+    #wynik.show { opacity: 1; }
   </style>
 </head>
 <body>
@@ -142,7 +100,7 @@
     <button id="btn">Kliknij mnie</button>
     <div id="wynik"></div>
   </main>
-	  <br>  <br>
+  <br><br>
   <label for="OSOBA">Wybierz siebie:</label>
   <select id="OSOBA">
     <option value="Kasia">Kasia</option>
@@ -154,32 +112,22 @@
     <option value="Milena">Milena</option>
   </select>
   <br>
-  
-  
-	  <div class="choinka-container">
-	  <img src="choinka.png" alt="Choinka" class="choinka">
 
-	  <div class="prezenty">
-		<img src="prezent_czerwony.png" alt="Prezent czerwony" class="prezent" id="prezent1">
-		<img src="prezent_niebieski.png" alt="Prezent niebieski" class="prezent" id="prezent2">
-		<img src="prezent_zielony.png" alt="Prezent zielony" class="prezent" id="prezent3">
-		<img src="prezent_zolty.png" alt="Prezent zolty" class="prezent" id="prezent4">
-	  </div>
-	</div>
-
-
-
+  <div class="choinka-container">
+    <img src="choinka.png" alt="Choinka" class="choinka">
+    <div class="prezenty">
+      <img src="prezent_czerwony.png" alt="Prezent czerwony" class="prezent" id="prezent1">
+      <img src="prezent_niebieski.png" alt="Prezent niebieski" class="prezent" id="prezent2">
+      <img src="prezent_zielony.png" alt="Prezent zielony" class="prezent" id="prezent3">
+      <img src="prezent_zolty.png" alt="Prezent zolty" class="prezent" id="prezent4">
+    </div>
+  </div>
 
   <!-- Firebase SDK -->
   <script type="module">
-  
-	
-  
-  
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
     import { getDatabase, ref, get, set, child } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
-    // 🔹 KONFIGURACJA FIREBASE – podmień swoimi danymi!
     const firebaseConfig = {
       apiKey: "TWOJE_API_KEY",
       authDomain: "LosowanieMiko-ajkowe.firebaseapp.com",
@@ -190,7 +138,6 @@
       appId: "1:799794096883:web:b7063783ada57a57b22586"
     };
 
-    // 🔹 Inicjalizacja
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
@@ -199,90 +146,54 @@
     const wynik = document.getElementById("wynik");
     const select = document.getElementById("OSOBA");
 
-
-	  
-
-	 window.addEventListener("load", async () => {
-		  const ja = select.value;
-		  const dbRef = ref(db);
-		  const snapshot = await get(child(dbRef, "wylosowane"));
-		  const wylosowane = snapshot.exists() ? snapshot.val() : {};
-		  if (wylosowane[ja]) {
-			btn.addEventListener("click", async () => {
-			wynik.textContent = `Już losowałeś! Twój prezent dla: ${wylosowane[ja]}`;
-			wynik.classList.add("show");
-		  
-		  });
-		  }
-		});
-
-
-
-
-
     btn.addEventListener("click", async () => {
       const ja = select.value;
-
       const dbRef = ref(db);
       const snapshot = await get(child(dbRef, "wylosowane"));
-
       let wylosowane = snapshot.exists() ? snapshot.val() : {};
 
-      // jeśli ta osoba już losowała → pokaż wynik
+      // 🔹 jeśli osoba już losowała → pokazujemy wcześniejszy wynik z animacją
       if (wylosowane[ja]) {
-        wynik.textContent = `Już losowałeś! Twój prezent dla: ${wylosowane[ja]}`;
+        const prezenty = document.querySelectorAll(".prezent");
+        prezenty.forEach(p => p.classList.remove("fly", "shake"));
+        const losowyPrezent = prezenty[Math.floor(Math.random() * prezenty.length)];
+        losowyPrezent.classList.add("fly");
+
+        setTimeout(() => losowyPrezent.classList.add("shake"), 1500);
+
+        setTimeout(() => {
+          wynik.textContent = `Już losowałeś! Twój prezent dla: ${wylosowane[ja]}`;
+          wynik.classList.add("show");
+        }, 3000);
+
+        setTimeout(() => losowyPrezent.classList.remove("fly", "shake"), 4000);
         return;
       }
 
-      // dostępne osoby (nikt nie może wylosować siebie ani osoby już przypisanej)
+      // 🔹 losowanie nowej osoby
       const dostepne = tab.filter(o => o !== ja && !Object.values(wylosowane).includes(o));
-
       if (dostepne.length === 0) {
         wynik.textContent = "Brak dostępnych osób do wylosowania!";
         return;
       }
 
-      // losowanie
       const los = dostepne[Math.floor(Math.random() * dostepne.length)];
-
-      // zapis do bazy
       await set(ref(db, "wylosowane/" + ja), los);
 
-     /* wynik.textContent = `Musisz kupić prezent: ${los}`;
-	  
-	  
-	  await set(ref(db, "wylosowane/" + ja), los);*/
+      const prezenty = document.querySelectorAll(".prezent");
+      prezenty.forEach(p => p.classList.remove("fly", "shake"));
 
+      const losowyPrezent = prezenty[Math.floor(Math.random() * prezenty.length)];
+      losowyPrezent.classList.add("fly");
 
+      setTimeout(() => losowyPrezent.classList.add("shake"), 1500);
 
-		// 🎁 animacja prezentu
-	const prezenty = document.querySelectorAll(".prezent");
-	prezenty.forEach(p => {
-	  p.classList.remove("fly");
-	  p.classList.remove("shake");
-	});
+      setTimeout(() => {
+        wynik.textContent = `Musisz kupić prezent osobie: ${los}`;
+        wynik.classList.add("show");
+      }, 3000);
 
-	const losowyPrezent = prezenty[Math.floor(Math.random() * prezenty.length)];
-	losowyPrezent.classList.add("fly");
-
-	// ⏱️ po 1.5s (gdy doleci) – dodaj trzęsienie
-	setTimeout(() => {
-	  losowyPrezent.classList.add("shake");
-	}, 1500);
-
-	// 💬 po 2.3s – pokaż wynik
-	setTimeout(() => {
-	  wynik.textContent = `Musisz kupić prezent osobie: ${los}`;
-	  wynik.classList.add("show");
-	}, 3000);
-
-	// 🕒 opcjonalnie – po 4s prezent wraca na miejsce
-	setTimeout(() => {
-	  losowyPrezent.classList.remove("fly", "shake");
-	}, 4000);
-	
-	
-	
+      setTimeout(() => losowyPrezent.classList.remove("fly", "shake"), 4000);
     });
   </script>
 </body>
